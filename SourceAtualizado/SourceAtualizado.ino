@@ -8,8 +8,8 @@ unsigned long starttime;
 unsigned long sampletime_ms = 30000;
 unsigned long lowpulseoccupancy = 0;
 
-const char* ssid = "ANA RAQUEL";
-const char* password = "gato1234";
+const char* ssid = "Sidnet 7";
+const char* password = "ehoradoshowporra";
 const char* server = "api.thingspeak.com";
 const String apiKey = "6Q4GC2JNZIQD7Q1R";
 
@@ -82,7 +82,7 @@ void loop() {
   duration = pulseIn(DSMPIN, LOW);
   lowpulseoccupancy += duration;
 
-  if ((millis()-starttime) > sampletime_ms)//if the sampel time == 30s
+  if ((millis()-starttime) > sampletime_ms)
   {
     
     float humidity = dht.getHumidity();
