@@ -114,10 +114,12 @@ void loop() {
     Serial.print(lowpulseoccupancy);
     Serial.print("\n");
     
-    ratio = lowpulseoccupancy/(sampletime_ms)*10.0;  // Integer percentage 0=>100
+    ratio = (lowpulseoccupancy/(sampletime_ms*1000.0))*100.0;  // Integer percentage 0=>100
+    Serial.println(ratio);
     concentration = 0.001915*pow(ratio,2) + 0.09522*ratio - 0.04884; // using spec sheet curve
 
-    ratio25 = lowpulseoccupancy25/(sampletime_ms)*10.0;
+    ratio25 = (lowpulseoccupancy25/(sampletime_ms*1000.0))*100.0;
+    Serial.println(ratio25);
     concentration25 = 0.001915*pow(ratio25,2) + 0.09522*ratio25 - 0.04884;
 
     Serial.println("concentration 2.5 = " + String(concentration25));
